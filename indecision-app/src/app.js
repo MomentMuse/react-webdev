@@ -28,7 +28,7 @@ let getLocation = (location) => location ? location : 'Unknown';
 
 const templateTwo = (
     <div>
-        <h1>{user.name.toUpperCase()}</h1>
+        <h1>{user.name.toLowerCase()}</h1>
         <p>Age: {user.age}</p>
         <p>Location: {getLocation(user.location)}</p>
     </div>
