@@ -24,13 +24,13 @@ let user = {
     location: 'Canada'
 };
 
-let getLocation = (location) => location ? location : 'Unknown';
+let getLocation = (location) => location ? <p>Location: {location}</p> : undefined;
 
 const templateTwo = (
     <div>
-        <h1>{user.name.toLowerCase()}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {getLocation(user.location)}</p>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
     </div>
 )
 
