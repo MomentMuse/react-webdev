@@ -4,13 +4,13 @@ console.log('App.js is running');
 
 //JSX JavaScript XML
 
-var appObj = {
+const appObj = {
     title: 'Indecision App!!',
     subtitle: 'Yo wassap, this is a subtitle',
     options: ['One', 'Two']
 };
 
-var template = React.createElement(
+const template = React.createElement(
     'div',
     null,
     React.createElement(
@@ -44,13 +44,13 @@ var template = React.createElement(
     )
 );
 
-var user = {
+const user = {
     name: 'Amy',
     age: 27,
     location: 'Canada'
 };
 
-var getLocation = function getLocation(location) {
+const getLocation = function getLocation(location) {
     return location ? React.createElement(
         'p',
         null,
@@ -59,7 +59,7 @@ var getLocation = function getLocation(location) {
     ) : undefined;
 };
 
-var templateTwo = React.createElement(
+const templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
@@ -76,6 +76,6 @@ var templateTwo = React.createElement(
     getLocation(user.location)
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(template, appRoot);
