@@ -24,3 +24,14 @@ const user = {
 };
 
 console.log(user.printPlacesLived());
+
+//Challenge time!
+const multiplier = {
+    numbers: [2, 5, 9],
+    multiplyBy: 3,
+    multiply(multiplyBy) { 
+        return this.numbers.map((num) => num * this.multiplyBy); 
+    }
+};
+
+console.log(multiplier.multiply());
