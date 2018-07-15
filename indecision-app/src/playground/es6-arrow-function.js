@@ -8,3 +8,6 @@ console.log(square(8))
 const squareArrow = (x) => x * x ;
 
 console.log(squareArrow(8));
+
+//Challenge: create getFirstName arrow function
+const getFirstName = (fullName) => fullName.split(' ')[0];
