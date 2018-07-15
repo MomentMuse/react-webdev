@@ -6,7 +6,7 @@ const add = function (a, b) {
     return a + b;
 }
 console.log(add(55, 1, 1001));
-//the arguments will log
+//the arguments will log (can access)
 
 const addArrow = (a, b) => {
     console.log(arguments);
@@ -14,3 +14,13 @@ const addArrow = (a, b) => {
 }
 console.log(addArrow(55, 1, 1001));
 //the arguments will not log. no access to arguments with arrow function
+
+const user = {
+    name: 'Amy',
+    cities: ['Ottawa', 'Philadelphia', 'Singapore', 'Toronto', 'Yamagata'],
+    printPlacesLived() {
+        return cityMessages = this.cities.map((city) => `${this.name} has lived in ${city}`);
+    }
+};
+
+console.log(user.printPlacesLived());
