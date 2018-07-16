@@ -4,13 +4,13 @@ console.log('App.js is running');
 
 //JSX JavaScript XML
 
-const appObj = {
+var appObj = {
     title: 'Indecision App!!',
     subtitle: 'Yo wassap, this is a subtitle',
     options: ['One', 'Two']
 };
 
-const template = React.createElement(
+var template = React.createElement(
     'div',
     null,
     React.createElement(
@@ -44,38 +44,59 @@ const template = React.createElement(
     )
 );
 
-const user = {
-    name: 'Amy',
-    age: 27,
-    location: 'Canada'
+// let user = {
+//     name: 'Amy',
+//     age: 27,
+//     location: 'Canada'
+// };
+
+// let getLocation = (location) => location ? <p>Location: {location}</p> : undefined;
+
+// const templateTwo = (
+//     <div>
+//         <h1>{user.name ? user.name : 'Anonymous'}</h1>
+//         {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+//         {getLocation(user.location)}
+//     </div>
+// );
+
+var count = 0;
+var addOne = function addOne() {
+    console.log('addOne fired');
+};
+var minusOne = function minusOne() {
+    console.log('minusOne fired');
+};
+var reset = function reset() {
+    console.log('reset fired');
 };
 
-const getLocation = function getLocation(location) {
-    return location ? React.createElement(
-        'p',
-        null,
-        'Location: ',
-        location
-    ) : undefined;
-};
-
-const templateTwo = React.createElement(
+var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name ? user.name : 'Anonymous'
+        'Count: ',
+        count
     ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
+    React.createElement(
+        'button',
+        { onClick: addOne },
+        '+1'
     ),
-    getLocation(user.location)
+    React.createElement(
+        'button',
+        { onClick: minusOne },
+        '-1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: reset },
+        'Reset'
+    )
 );
 
-const appRoot = document.getElementById('app');
+var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

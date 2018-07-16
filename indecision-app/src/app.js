@@ -20,22 +20,42 @@ const template = (
     </div>
 );
 
-let user = {
-    name: 'Amy',
-    age: 27,
-    location: 'Canada'
-};
+// let user = {
+//     name: 'Amy',
+//     age: 27,
+//     location: 'Canada'
+// };
 
-let getLocation = (location) => location ? <p>Location: {location}</p> : undefined;
+// let getLocation = (location) => location ? <p>Location: {location}</p> : undefined;
+
+// const templateTwo = (
+//     <div>
+//         <h1>{user.name ? user.name : 'Anonymous'}</h1>
+//         {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+//         {getLocation(user.location)}
+//     </div>
+// );
+
+let count = 0;
+const addOne = () => {
+    console.log('addOne fired');
+};
+const minusOne = () => {
+    console.log('minusOne fired');
+};
+const reset = () => {
+    console.log('reset fired');
+};
 
 const templateTwo = (
     <div>
-        <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>Reset</button>
     </div>
-)
+);
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
