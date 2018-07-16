@@ -106,3 +106,5 @@ var renderCounterApp = function renderCounterApp() {
 };
 
 renderCounterApp();
+
+//this is a test
