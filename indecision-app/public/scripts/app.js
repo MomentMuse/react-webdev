@@ -7,52 +7,77 @@ console.log('App.js is running');
 var appObj = {
     title: 'Indecision App!!',
     subtitle: 'Yo wassap, this is a subtitle',
-    options: ['One', 'Two']
+    options: []
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        appObj.title
-    ),
-    appObj.subtitle && React.createElement(
-        'p',
-        null,
-        appObj.subtitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        appObj.options.length > 0 ? 'Here are your options!' : 'No options, sorry'
-    ),
-    React.createElement(
-        'ul',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'thing one'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'thing two'
-        )
-    ),
-    React.createElement(
-        'form',
-        null,
-        React.createElement('input', { type: 'text', name: 'option' }),
-        React.createElement(
-            'button',
-            null,
-            'Add Option'
-        )
-    )
-);
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
+
+    var option = e.target.elements.option.value;
+
+    if (option) {
+        appObj.options.push(option);
+        e.target.elements.option.value = '';
+        renderApp();
+    };
+};
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+
+var renderApp = function renderApp() {
+    var template = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            appObj.title
+        ),
+        appObj.subtitle && React.createElement(
+            'p',
+            null,
+            appObj.subtitle
+        ),
+        React.createElement(
+            'p',
+            null,
+            appObj.options.length > 0 ? 'Here are your options!' : 'No options, sorry'
+        ),
+        React.createElement(
+            'p',
+            null,
+            appObj.options.length
+        ),
+        React.createElement(
+            'ul',
+            null,
+            React.createElement(
+                'li',
+                null,
+                'thing one'
+            ),
+            React.createElement(
+                'li',
+                null,
+                'thing two'
+            )
+        ),
+        React.createElement(
+            'form',
+            { onSubmit: onFormSubmit },
+            React.createElement('input', { type: 'text', name: 'option' }),
+            React.createElement(
+                'button',
+                null,
+                'Add Option'
+            )
+        )
+    );
+    ReactDOM.render(template, appRoot);
+};
+
+renderApp();
+
+//create render function that renders new jsx
+//call it right away
+//call it after options array is added to
