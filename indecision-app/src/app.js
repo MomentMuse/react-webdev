@@ -2,7 +2,7 @@ console.log('App.js is running')
 
 //JSX JavaScript XML
 
-let appObj = {
+const appObj = {
     title: 'Indecision App!!',
     subtitle: 'Yo wassap, this is a subtitle',
     options: ['One', 'Two']
@@ -17,6 +17,10 @@ const template = (
             <li>thing one</li>
             <li>thing two</li>
         </ul>
+        <form>
+            <input type="text" name="option"/>
+            <button>Add Option</button>
+        </form>
     </div>
 );
 
