@@ -17,7 +17,12 @@ const onFormSubmit = (e) => {
         appObj.options.push(option);
         e.target.elements.option.value = '';
         renderApp();
-    };
+    }
+}
+
+const onRemoveAll = () => {
+    appObj.options = [];
+    renderApp();
 }
 
 const appRoot = document.getElementById('app');
@@ -29,6 +34,7 @@ const renderApp = () => {
             {appObj.subtitle && <p>{appObj.subtitle}</p>}
             <p>{appObj.options.length > 0 ? 'Here are your options!' : 'No options, sorry'}</p>
             <p>{appObj.options.length}</p>
+            <button onClick={onRemoveAll}>Remove All</button>
             <ul>
                 <li>thing one</li>
                 <li>thing two</li>
@@ -43,7 +49,3 @@ const renderApp = () => {
 }
 
 renderApp();
-
-//create render function that renders new jsx
-//call it right away
-//call it after options array is added to

@@ -19,7 +19,12 @@ var onFormSubmit = function onFormSubmit(e) {
         appObj.options.push(option);
         e.target.elements.option.value = '';
         renderApp();
-    };
+    }
+};
+
+var onRemoveAll = function onRemoveAll() {
+    appObj.options = [];
+    renderApp();
 };
 
 var appRoot = document.getElementById('app');
@@ -47,6 +52,11 @@ var renderApp = function renderApp() {
             'p',
             null,
             appObj.options.length
+        ),
+        React.createElement(
+            'button',
+            { onClick: onRemoveAll },
+            'Remove All'
         ),
         React.createElement(
             'ul',
@@ -77,7 +87,3 @@ var renderApp = function renderApp() {
 };
 
 renderApp();
-
-//create render function that renders new jsx
-//call it right away
-//call it after options array is added to
